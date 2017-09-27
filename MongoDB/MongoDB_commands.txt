@@ -1,0 +1,40 @@
+show dbs
+use <database name>
+db
+
+db.createCollection('<Collection name>');
+show collections
+
+<-------insert------>
+db.<collection name>.insert({name:"value",name:"value"});
+db.<collection name>.insert([{name:"value",name:"value"},{name:"value",name:"value"}]);
+
+<-------select------>
+db.<collection name>.find();
+db.<collection name>.find({name:"value"});
+db.<collection name>.find({$or:[{name:"value"},{name:"value"}]});
+db.<collection name>.find({name:{$lt:40}});
+db.<collection name>.find({"name.name":"value"});
+db.<collection name>.find().pretty();
+
+<-------update------>
+db.<collection name>.update({uname:"uvalue"},{uname:"uvalue",name:"value",name:"value"});
+db.<collection name>.update({uname:"uvalue"},{$set:{name:"value"}});
+db.<collection name>.update({uname:"uvalue"},{$unset:{name:"value"}});
+
+<-------delete------>
+db.<collection name>.remove({name:"value"});
+db.<collection name>.remove({name:"value"},{justOne:true});
+
+<-------sort------>
+db.<collection name>.find().sort({name:1});   //ascending
+db.<collection name>.find().sort({name:-1});  //descending
+
+<-------count------>
+db.<collection name>.find().count();
+db.<collection name>.find({name:"value"}).count();
+db.<collection name>.find().limit(4);
+db.<collection name>.find().limit(4).sort({name:1});
+
+<-------foreach------>
+db.<collection name>.find().forEach(function(doc){print("customer Name:"+doc.first_name)});

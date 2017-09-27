@@ -1,0 +1,9 @@
+var express = require('express');
+var app = express();
+
+app.get('/things/:id([0-9]{5})', function(req, res){
+   res.send('id: ' + req.params.id);
+});
+
+app.listen(3000);
+console.log("server running at port 3000");

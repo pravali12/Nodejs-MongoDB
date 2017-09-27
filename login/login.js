@@ -14,7 +14,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var Schema = mongoose.Schema;
 var userSchema = new Schema({
 	username: String,
-    email: String
+    email: Number
 });
 
 var User = mongoose.model('User', userSchema);
